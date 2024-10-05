@@ -35,7 +35,6 @@ def load_jsonl(file_path):
 
 def eval_number_step(pred, number_p):
     try:
-        #for pred_sentence in pred.split("\n"):
         number_regex = re.compile(r"\d+")
         
         pred = re.sub(r"\n", " ", pred)
@@ -54,32 +53,13 @@ def eval_number_step(pred, number_p):
     
 def eval_step(pred, sentence_p):
     try:
-        #for pred_sentence in pred.split("\n"):
         sentence_p = re.search(r"(.+?) has", sentence_p).group(1)
         pred = re.sub(r"\n", " ", pred)
-        #pred = re.sub(r" so ", " So ", pred)
-        #pred = re.sub(r" So ", " So, ", pred)
-        #print("pred: ", pred)
         
         pred = re.sub(r"Context.+", "", pred)
-
-        # print("sentence_p: ", sentence_p)
-        # print("pred: ", pred)
-        #regex = re.compile(r"So, (.+?) has")
-        #pred = re.search(regex, pred).group(1)
-        #gold = re.search(regex, gold).group(1)
-        #print("sentence_p: ", sentence_p)
-        #print("pred: ", pred)
         if sentence_p in pred:
-            # print("sentence_p: ", sentence_p)
-            # print("pred: ", pred)
-            # print("----------------")
             return True
         else:
-            # print("sentence_p: ", sentence_p)
-            # print("pred: ", pred)
-            # print("----------------")
-            # exit()
             return False
     except:
         return False
@@ -88,7 +68,6 @@ def get_answer(output:str):
     print(output)
     try:
         output = re.sub(r"\n", "", output)
-        #print(output)
         regex = re.compile(r"answer is (.+?)\.")
         answer = re.search(regex, output).group(1)
         return answer
@@ -97,8 +76,7 @@ def get_answer(output:str):
             regex = re.compile(r"Therefore.+?has (.+?) ")
             answer = re.search(regex, output).group(1)
             return answer
-        except:    
-            #print(output)
+        except:
             return None
 
 if __name__ == '__main__':

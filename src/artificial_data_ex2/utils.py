@@ -56,10 +56,3 @@ def get_answer(output:str):
         return answer
     except:
         return None
-
-if __name__ == '__main__':
-    pred_steps = " Eve is not witty. If Eve is not witty, then Eve is kind. Eve is kind. If Eve is kind, then Eve is honest. Eve is honest. The final answer is False.".split(". ")
-    pred_steps = [x.strip() for x in pred_steps]
-    gold_steps = "Eve is not witty. If Eve is not witty, then Eve is kind. Eve is kind. If Eve is kind, then Eve is honest. Eve is honest. The final answer is False.".split(". ")
-    gold_steps = [x.strip() for x in gold_steps]
-    print(eval_answer_and_steps(pred_steps, gold_steps, True, True))

@@ -15,8 +15,7 @@ PYTHONHASHSEED=0 python "${project_dir}/src/artificial_data_ex1/analysis.py" \
         --gold_file="${project_dir}/data/artificial_data_ex1/formatted_data/${data_type}/test.jsonl"
 
 
-#model="gpt-3.5-turbo"
-#model="gpt-4"
 
-# ./analysis.sh /Users/aoki0903/Desktop/研究室プログラミング/search_capability flat flat gpt-3.5-turbo 0
-# ./analysis.sh /Users/aoki0903/Desktop/研究室プログラミング/search_capability over flat gpt-3.5-turbo 0
+
+
+

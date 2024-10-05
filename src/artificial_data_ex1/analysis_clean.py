@@ -1,6 +1,4 @@
 import argparse
-
-import re
 from src.artificial_data_ex1.utils import load_jsonl, eval_step
 
 
@@ -22,8 +20,6 @@ def main(args):
     for pred,gold in zip(pred_data,gold_data):
         pred_output = pred["pred_output"]
         gold_output = gold["gold_outputs"]
-        not_gold_output = gold["not_gold_outputs"]
-
         pred_output = clean_pred_output(pred_output)
 
         if eval_step(pred_output, gold_output):
@@ -37,6 +33,3 @@ if __name__ == '__main__':
     parser.add_argument('--gold_file', default="test1,valid2")
     args = parser.parse_args()
     main(args)
-
-
-#python analysis.py --input_file "/Users/aoki0903/Desktop/研究室プログラミング/search_capability/logs/formal_language/non_overlap/overlap/text-davinci-003/depth=3_tree=3.jsonl"

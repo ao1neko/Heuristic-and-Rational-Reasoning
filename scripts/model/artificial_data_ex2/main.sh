@@ -20,8 +20,7 @@ PYTHONHASHSEED=0 python "${project_dir}/src/artificial_data_ex2/main.py" \
         --model=${model} \
         --depth="${depth}" \
 
-#model="gpt-3.5-turbo"
-#model="gpt-4"
 
-# ./main_chat.sh /Users/aoki0903/Desktop/研究室プログラミング/search_capability flat flat gpt-3.5-turbo 0
-# ./main_chat.sh /Users/aoki0903/Desktop/研究室プログラミング/search_capability overlap flat gpt-3.5-turbo 0
+
+
+

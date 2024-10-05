@@ -16,7 +16,6 @@ def load_jsonl(file_path):
 def get_answer(output:str):
     try:
         output = re.sub(r"\n", "", output)
-        #print(output)
         regex = re.compile(r"answer is (.+?)\.")
         answer = re.search(regex, output).group(1)
         return answer
@@ -26,7 +25,6 @@ def get_answer(output:str):
             answer = re.search(regex, output).group(1)
             return answer
         except:    
-            #print(output)
             return None
 
 def main(args):
@@ -45,16 +43,12 @@ def main(args):
         pred_output = re.sub(r"\n", " ", pred_output)
         pred_output = re.sub(r"Context.+", " ", pred_output)
         
-        #print("pred_output: ", pred_output)
         pred_numbers = re.findall(number_regex, pred_output)
         for num in redundant_numbers:
             if num in pred_numbers:
                 in_redundant_node += 1
                 break
         
-        # pred_answer = get_answer(pred_output)
-        # if str(answer) == pred_answer:
-        #     accuracy += 1
         if str(answer) in pred_output:
             print("answer: ", answer)
             print("pred_output: ", pred_output)

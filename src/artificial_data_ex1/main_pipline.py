@@ -7,7 +7,6 @@ import json
 import re
 from pathlib import Path
 from tqdm import tqdm
-from transformers import BitsAndBytesConfig
 
 from src.artificial_data_ex1.utils import read_jsonl_file
 

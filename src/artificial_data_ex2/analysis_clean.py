@@ -41,6 +41,3 @@ if __name__ == '__main__':
     parser.add_argument('--depth', default=3, type=int)
     args = parser.parse_args()
     main(args)
-
-
-#python analysis.py --input_file "/Users/aoki0903/Desktop/研究室プログラミング/search_capability/logs/formal_language/non_overlap/overlap/text-davinci-003/depth=3_tree=3.jsonl"

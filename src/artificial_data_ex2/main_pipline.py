@@ -28,28 +28,6 @@ def main(args):
     else:
         exit("Not implemented yet")
 
-    """
-    access_token = os.environ.get("HF_ACCESS_TOKEN")
-    tokenizer = AutoTokenizer.from_pretrained(
-        args.model,
-        token=access_token,
-        )
-    print(args.model)
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model,
-        torch_dtype=torch.float16,
-        device_map="auto",
-        token=access_token,
-    )
-    pipeline = transformers.pipeline(
-        "text-generation",
-        model=model,
-        torch_dtype=torch.float16,
-        device_map="auto",
-        tokenizer=tokenizer,
-        #model_kwargs={"load_in_8bit": True}
-    )
-    """
     tokenizer = AutoTokenizer.from_pretrained(
         args.model,
         )

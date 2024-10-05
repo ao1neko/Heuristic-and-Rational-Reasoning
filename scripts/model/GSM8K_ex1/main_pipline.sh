@@ -16,4 +16,4 @@ PYTHONHASHSEED=0 python "${project_dir}/src/GSM8K_ex1/main_pipline.py" \
         --output_json_file="${project_dir}/logs/GSM8K_ex1/${model}/${data_type}.jsonl" \
         --model=${model_dir} \
 
-#./main.sh /Users/aoki0903/Desktop/研究室プログラミング/search_capability flat gpt-3.5-turbo
+

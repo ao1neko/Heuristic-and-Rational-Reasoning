@@ -18,13 +18,11 @@ def main(args):
         pred_output = pred["pred_output"]
         gold_output = gold["gold_outputs"][args.depth]
         heuristic_outputs = gold["heuristic_outputs"][:args.depth+1]
-        #distract_outputs = gold["distract_outputs"][(args.depth*distract_num):((args.depth+1)*distract_num)]
         distract_outputs = gold["distract_outputs"][:((args.depth+1)*distract_num)]
         
         
         if eval_step(pred_output, gold_output):
             shortest_node += 1
-        #for not_gold_output in not_gold_outputs:
         for heuristic_output in heuristic_outputs:
             if eval_step(pred_output, heuristic_output):
                 heuristic_node += 1
@@ -34,12 +32,6 @@ def main(args):
             if eval_step(pred_output, distract_output):
                 distract_node += 1
                 break
-        #else:
-        #   print("pred_output: ", pred_output)
-        #    print("gold_output: ", gold_output)
-        #    print("heuristic_output: ", heuristic_output)
-        #    print("################################################################")
-            #break
     print("shortest_node: ", shortest_node)
     print("heuristic_node: ", heuristic_node)
     print("distract_node: ", distract_node)
@@ -53,6 +45,3 @@ if __name__ == '__main__':
     parser.add_argument('--depth', default=3, type=int)
     args = parser.parse_args()
     main(args)
-
-
-#python analysis.py --input_file "/Users/aoki0903/Desktop/研究室プログラミング/search_capability/logs/formal_language/non_overlap/overlap/text-davinci-003/depth=3_tree=3.jsonl"

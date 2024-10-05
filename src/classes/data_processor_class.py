@@ -86,7 +86,6 @@ class GSM8KRedundantDataProcessor():
             question_pronouns = re.findall(self.pronoun_regex,data.question)
             
             if len(data.redundant_sentences) != 0 and len(data.context_names) == 1 and len(question_names + question_pronouns) != 0:
-                # contextに名前が一つ、questionに名前か代名詞が一つ以上、redundant_sentenceが一つ以上
                 data_list.append(data)
         self.data_list = data_list
 
@@ -158,10 +157,8 @@ class GSM8KRedundantDataProcessor():
             position_index = random.randint(0,len(tmp_contexts))
             not_position_index = random.randint(position_index,len(tmp_contexts)+1)
             if self.data_type == "position":
-                #data.context =   data.context + ". ".join(redundant_sentences) + ". "
                 tmp_contexts.insert(position_index,". ".join(redundant_sentences))
             else:
-                #data.context =  ". ".join(redundant_sentences) + ". " + data.context
                 tmp_contexts.insert(not_position_index,". ".join(redundant_sentences))
             data.context =  ". ".join(tmp_contexts)
             data_list.append(data)
@@ -194,23 +191,3 @@ class GSM8KRedundantDataProcessor():
                 output_file_object.write(
                     json.dumps((json_data)))
                 output_file_object.write("\n")
-
-
-if __name__ == '__main__':
-    data_processor = GSM8KRedundantDataProcessor()
-    data_processor.read_original_file("/Users/aoki0903/Desktop/研究室プログラミング/search_capability/data/GSM8K/train.jsonl")
-    data_processor.make_instance(tree_num=2)
-    
-    for x in data_processor.data_list[:10]:
-        print(f"context: {x.original_context}")
-        print(f"context: {x.other_context}")
-        print(f"question: {x.question}")
-        print(f"answer: {x.answer}")
-        print(f"redundant_sentences: {x.original_redundant_sentences}")
-        print(f"redundant_numbers: {x.original_redundant_numbers}")
-        print(f"redundant_sentences: {x.other_redundant_sentences}")
-        print(f"redundant_numbers: {x.other_redundant_numbers}")
-        print(f"reasoning step: {x.reasoning_step}")
-        print(f"reasoning_num: {x.reasoning_num}")
-        print("----------------------------")
-    print(len(data_processor.data_list))

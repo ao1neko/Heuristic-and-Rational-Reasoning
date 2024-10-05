@@ -26,4 +26,3 @@ PYTHONHASHSEED=0 python "${project_dir}/src/data/artificial_data_ex2/make_data.p
 
 echo "formatted test.jsonl"
 
-# ./make_data.sh /Users/aoki0903/Desktop/研究室プログラミング/search_capability

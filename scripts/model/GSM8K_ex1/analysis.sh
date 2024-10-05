@@ -15,7 +15,6 @@ PYTHONHASHSEED=0 python "${project_dir}/src/GSM8K_ex1/analysis.py" \
         --data_type="${data_type}" \
 
 
-#model="gpt-3.5-turbo"
-#model="gpt-4"
 
-# ./analysis.sh /Users/aoki0903/Desktop/研究室プログラミング/search_capability flat gpt-3.5-turbo
+
+

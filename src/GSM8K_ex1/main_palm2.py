@@ -30,8 +30,6 @@ def main(args):
     
     with open(args.output_file, "w") as f, open(args.output_json_file, "w") as jf:
         for index in tqdm(range(len(inputs))):
-            #response = str(palm.generate_text(prompt=prompt+inputs[index]).result)
-            #response = send(prompt=prompt+inputs[index]+"\n".join(outputs[index][:args.depth]))
             response = send(prompt=prompt+inputs[index])
 
             

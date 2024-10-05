@@ -19,12 +19,7 @@ def main(args):
         print("pred_answer: ", pred_answer)
         print("gold_answer: ", answer)
         if str(answer) == pred_answer:
-        #if str(answer) == pred_answer:
             accuracy += 1
-        # else:
-            # print("pred_answer: ", pred_answer)
-            # print("gold_answer: ", answer)
-            # print("----------------")
 
     print("Percentage of sentence_p inference：", sentence_p_inference/len(pred_data))
     print("Accuracy: ", accuracy/len(pred_data))
@@ -37,6 +32,3 @@ if __name__ == '__main__':
     parser.add_argument('--gold_file', default="test1,valid2")
     args = parser.parse_args()
     main(args)
-
-
-#python analysis.py --input_file "/Users/aoki0903/Desktop/研究室プログラミング/search_capability/logs/formal_language/non_overlap/overlap/text-davinci-003/depth=3_tree=3.jsonl"

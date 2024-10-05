@@ -42,8 +42,6 @@ def eval_answer_and_steps(left_args, redundant_numbers,pred_answer, gold_answer)
         return True
     
 def eval_equations(left_args, right_args):
-    number_regex = re.compile(r'\d+')
-    
     for equation,answer in zip(left_args,right_args):
         try:
             if not math.isclose(float(eval(equation)),float(answer)):
