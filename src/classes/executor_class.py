@@ -32,7 +32,12 @@ class GPT(Module):
         for answer in answers:
             prompt.append({
                 "role": "assistant",
-                "content": answer
+                "content": [
+                    {
+                        "text": answer,
+                        "type": "text"
+                    }
+                ],
                 })
         response = self.client.chat.completions.create(
             model=self.model,

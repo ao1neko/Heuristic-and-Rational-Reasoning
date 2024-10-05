@@ -7,38 +7,42 @@ def main(args):
     pred_data = load_jsonl(args.pred_file)
     gold_data = load_jsonl(args.gold_file)
     shortest_node = 0
-    bias_node = 0
+    heuristic_node = 0
+    distract_node = 0
     accuracy = 0
     regex = re.compile(r"So, (.+?) has")
 
     
     for pred,gold in zip(pred_data,gold_data):
+        distract_num = 8
         pred_output = pred["pred_output"]
         gold_output = gold["gold_outputs"][args.depth]
-        not_gold_outputs = gold["not_gold_outputs"]
+        heuristic_outputs = gold["heuristic_outputs"][:args.depth+1]
+        #distract_outputs = gold["distract_outputs"][(args.depth*distract_num):((args.depth+1)*distract_num)]
+        distract_outputs = gold["distract_outputs"][:((args.depth+1)*distract_num)]
         
         
-        tmp_shorted_node = shortest_node
-        tmp_bias_node = bias_node
         if eval_step(pred_output, gold_output):
             shortest_node += 1
-        # else:
-        #     print("pred_output: ", pred_output)
-        #     print("gold_output: ", gold_output)
-        #     print("not_gold_outputs: ", not_gold_outputs)
-        #     print("-----------------")
-        for not_gold_output in not_gold_outputs:
-            if eval_step(pred_output, not_gold_output):
-                bias_node += 1
+        #for not_gold_output in not_gold_outputs:
+        for heuristic_output in heuristic_outputs:
+            if eval_step(pred_output, heuristic_output):
+                heuristic_node += 1
                 break
-        
-        # if tmp_shorted_node == shortest_node and tmp_bias_node == bias_node:
-        #     print("pred_output: ", pred_output)
-        #     print("gold_output: ", gold_output)
-        #     print("not_gold_outputs: ", not_gold_outputs)
-        #     print("-----------------")
+
+        for distract_output in distract_outputs:
+            if eval_step(pred_output, distract_output):
+                distract_node += 1
+                break
+        #else:
+        #   print("pred_output: ", pred_output)
+        #    print("gold_output: ", gold_output)
+        #    print("heuristic_output: ", heuristic_output)
+        #    print("################################################################")
+            #break
     print("shortest_node: ", shortest_node)
-    print("not_shortest_node: ", bias_node)
+    print("heuristic_node: ", heuristic_node)
+    print("distract_node: ", distract_node)
     print(1)
     
 

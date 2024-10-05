@@ -44,7 +44,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Alice has 92 more bananas than Mallory. Victor has 10 less bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 less bananas than Peggy. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry has 17 less bananas than Alice. Zoe has 58 less bananas than Yvonne. Ivan has 43 less bananas than Yvonne. Walter has 43 less bananas than Mallory. Nancy has 34 bananas. Grace has 41 more bananas than Xavier. Mallory has 55 less bananas than Nancy. Sybil has 3 less bananas than Nancy. Peggy has 50 more bananas than Walter. Trent has 33 less bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
+          "text": "Context: Alice has 92 more bananas than Mallory. Victor has 10 fewer bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 fewer bananas than Peggy. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry has 17 fewer bananas than Alice. Zoe has 58 fewer bananas than Yvonne. Ivan has 43 fewer bananas than Yvonne. Walter has 43 fewer bananas than Mallory. Nancy has 34 bananas. Grace has 41 more bananas than Xavier. Mallory has 55 fewer bananas than Nancy. Sybil has 3 fewer bananas than Nancy. Peggy has 50 more bananas than Walter. Trent has 33 fewer bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
           "type": "text"
         }
       ]
@@ -53,7 +53,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nNancy has 34 bananas, and Mallory has 55 less bananas than Nancy. So, Mallory has 34-55=-21 bananas.\nMallory has -21 bananas, and Walter has 43 less bananas than Mallory. So, Walter has -21-43=-64 bananas.\nWalter has -64 bananas, and Peggy has 50 more bananas than Walter. So, Peggy has -64+50=-14 bananas.\nPeggy has -14 bananas, and Quentin has 35 less bananas than Peggy. So, Quentin has -14-35=-49 bananas.\nThe final answer is -49.",
+          "text": "Answer:\nNancy has 34 bananas, and Mallory has 55 fewer bananas than Nancy. So, Mallory has 34-55=-21 bananas.\nMallory has -21 bananas, and Walter has 43 fewer bananas than Mallory. So, Walter has -21-43=-64 bananas.\nWalter has -64 bananas, and Peggy has 50 more bananas than Walter. So, Peggy has -64+50=-14 bananas.\nPeggy has -14 bananas, and Quentin has 35 fewer bananas than Peggy. So, Quentin has -14-35=-49 bananas.\nThe final answer is -49.",
           "type": "text"
         }
       ]
@@ -62,7 +62,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 less apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier doesn't have 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
+          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 fewer apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier doesn't have 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
           "type": "text"
         }
       ]
@@ -71,7 +71,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nEve has 2 apples, and Yvonne's son has 3 more apples than Eve. So, Yvonne's son has 2+3=5 apples. \nYvonne's son has 5 apples, and Zoe has 10 more apples than Yvonne's son. So, Zoe has 5+10=15 apples. \nZoe has 15 apples, and Yvonne has 3 less apples than Zoe. So, Yvonne has 15-3=12 apples. \nThe final answer is 12.",
+          "text": "Answer:\nEve has 2 apples, and Yvonne's son has 3 more apples than Eve. So, Yvonne's son has 2+3=5 apples. \nYvonne's son has 5 apples, and Zoe has 10 more apples than Yvonne's son. So, Zoe has 5+10=15 apples. \nZoe has 15 apples, and Yvonne has 3 fewer apples than Zoe. So, Yvonne has 15-3=12 apples. \nThe final answer is 12.",
           "type": "text"
         }
       ]
@@ -80,7 +80,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Kevin's friend has 33 less grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 less grapes than Kevin's friend. Ursula has 75 less grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 less grapes than Heidi. Eve has 84 less grapes than Sybil. Xavier has 36 more grapes than Heidi. Sybil has 55 less grapes than Trent. Kevin has 43 less grapes than Zoe. Heidi has 61 less grapes than Trent. Zoe has 88 more grapes than Sybil. Trent has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
+          "text": "Kevin's friend has 33 fewer grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 fewer grapes than Kevin's friend. Ursula has 75 fewer grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 fewer grapes than Heidi. Eve has 84 fewer grapes than Sybil. Xavier has 36 more grapes than Heidi. Sybil has 55 fewer grapes than Trent. Kevin has 43 fewer grapes than Zoe. Heidi has 61 fewer grapes than Trent. Zoe has 88 more grapes than Sybil. Trent has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
           "type": "text"
         }
       ]
@@ -89,7 +89,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nRob has 55 grapes, and Trent has 40 more grapes than Rob. So, Trent has 55+40=95 grapes.\nTrent has 95 grapes, and Sybil has 55 less grapes than Trent. So, Sybil has 95-55=40 grapes.\nSybil has 40 grapes, and Zoe has 88 more grapes than Sybil. So, Zoe has 40+88=128 grapes.\nZoe has 128 grapes, and Kevin has 43 less grapes than Zoe. So, Kevin has 128-43=85 grapes.\nThe final answer is 128.",
+          "text": "Answer:\nRob has 55 grapes, and Trent has 40 more grapes than Rob. So, Trent has 55+40=95 grapes.\nTrent has 95 grapes, and Sybil has 55 fewer grapes than Trent. So, Sybil has 95-55=40 grapes.\nSybil has 40 grapes, and Zoe has 88 more grapes than Sybil. So, Zoe has 40+88=128 grapes.\nZoe has 128 grapes, and Kevin has 43 fewer grapes than Zoe. So, Kevin has 128-43=85 grapes.\nThe final answer is 128.",
           "type": "text"
         }
       ]
@@ -128,7 +128,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Alice has 92 more bananas than Quentin's mother. Victor has 10 less bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 less bananas than Quentin's father. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Quentin's father. Larry has 17 less bananas than Alice. Zoe has 58 less bananas than Yvonne. Ivan has 43 less bananas than Yvonne. Walter has 43 less bananas than Quentin's mother. Nancy has 34 bananas. Grace has 41 more bananas than Xavier. Quentin's mother has 55 less bananas than Nancy. Sybil has 3 less bananas than Nancy. Quentin's father has 50 more bananas than Walter. Trent has 33 less bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
+          "text": "Context: Alice has 92 more bananas than Quentin's mother. Victor has 10 fewer bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 fewer bananas than Quentin's father. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Quentin's father. Larry has 17 fewer bananas than Alice. Zoe has 58 fewer bananas than Yvonne. Ivan has 43 fewer bananas than Yvonne. Walter has 43 fewer bananas than Quentin's mother. Nancy has 34 bananas. Grace has 41 more bananas than Xavier. Quentin's mother has 55 fewer bananas than Nancy. Sybil has 3 fewer bananas than Nancy. Quentin's father has 50 more bananas than Walter. Trent has 33 fewer bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
           "type": "text"
         }
       ]
@@ -137,7 +137,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nNancy has 34 bananas, and Quentin's mother has 55 less bananas than Nancy. So, Quentin's mother has 34-55=-21 bananas.\nQuentin's mother has -21 bananas, and Walter has 43 less bananas than Quentin's mother. So, Walter has -21-43=-64 bananas.\nWalter has -64 bananas, and Quentin's father has 50 more bananas than Walter. So, Quentin's father has -64+50=-14 bananas.\nQuentin's father has -14 bananas, and Quentin has 35 less bananas than Quentin's father. So, Quentin has -14-35=-49 bananas.\nThe final answer is -49.",
+          "text": "Answer:\nNancy has 34 bananas, and Quentin's mother has 55 fewer bananas than Nancy. So, Quentin's mother has 34-55=-21 bananas.\nQuentin's mother has -21 bananas, and Walter has 43 fewer bananas than Quentin's mother. So, Walter has -21-43=-64 bananas.\nWalter has -64 bananas, and Quentin's father has 50 more bananas than Walter. So, Quentin's father has -64+50=-14 bananas.\nQuentin's father has -14 bananas, and Quentin has 35 fewer bananas than Quentin's father. So, Quentin has -14-35=-49 bananas.\nThe final answer is -49.",
           "type": "text"
         }
       ]
@@ -146,7 +146,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Yvonne's father has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 less apples than Yvonne's father. Alice has 3 more apples than Grace. Trent has 34 more apples than Yvonne's father. Ivan has 3 apples.  Ursula has 3 more apples than Yvonne's father. Grace has 3 apples. Xavier has 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
+          "text": "Context: Yvonne's father has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 fewer apples than Yvonne's father. Alice has 3 more apples than Grace. Trent has 34 more apples than Yvonne's father. Ivan has 3 apples.  Ursula has 3 more apples than Yvonne's father. Grace has 3 apples. Xavier has 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
           "type": "text"
         }
       ]
@@ -155,7 +155,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nEve has 2 apples, and Yvonne's son has 3 more apples than Eve. So, Yvonne's son has 2+3=5 apples. \nYvonne's son has 5 apples, and Yvonne's father has 10 more apples than Yvonne's son. So, Yvonne's father has 5+10=15 apples. \nYvonne's father has 15 apples, and Yvonne has 3 less apples than Yvonne's father. So, Yvonne has 15-3=12 apples. \nThe final answer is 12.",
+          "text": "Answer:\nEve has 2 apples, and Yvonne's son has 3 more apples than Eve. So, Yvonne's son has 2+3=5 apples. \nYvonne's son has 5 apples, and Yvonne's father has 10 more apples than Yvonne's son. So, Yvonne's father has 5+10=15 apples. \nYvonne's father has 15 apples, and Yvonne has 3 fewer apples than Yvonne's father. So, Yvonne has 15-3=12 apples. \nThe final answer is 12.",
           "type": "text"
         }
       ]
@@ -164,7 +164,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Kevin's friend has 33 less grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 less grapes than Kevin's friend. Ursula has 75 less grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 less grapes than Heidi. Eve has 84 less grapes than Kevin's neighborhood. Xavier has 36 more grapes than Heidi. Kevin's neighborhood has 55 less grapes than Kevin's friend. Kevin has 43 less grapes than Kevin's mother. Heidi has 61 less grapes than Kevin's friend. Kevin's mother has 88 more grapes than Kevin's neighborhood. Kevin's friend has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
+          "text": "Context: Kevin's friend has 33 fewer grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 fewer grapes than Kevin's friend. Ursula has 75 fewer grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 fewer grapes than Heidi. Eve has 84 fewer grapes than Kevin's neighborhood. Xavier has 36 more grapes than Heidi. Kevin's neighborhood has 55 fewer grapes than Kevin's friend. Kevin has 43 fewer grapes than Kevin's mother. Heidi has 61 fewer grapes than Kevin's friend. Kevin's mother has 88 more grapes than Kevin's neighborhood. Kevin's friend has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
           "type": "text"
         }
       ]
@@ -173,7 +173,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nRob has 55 grapes, and Kevin's friend has 40 more grapes than Rob. So, Kevin's friend has 55+40=95 grapes.\nKevin's friend has 95 grapes, and Kevin's neighborhood has 55 less grapes than Kevin's friend. So, Kevin's neighborhood has 95-55=40 grapes.\nKevin's neighborhood has 40 grapes, and Kevin's mother has 88 more grapes than Kevin's neighborhood. So, Kevin's mother has 40+88=128 grapes.\nKevin's mother has 128 grapes, and Kevin has 43 less grapes than Kevin's mother. So, Kevin has 128-43=85 grapes.\nThe final answer is 128.",
+          "text": "Answer:\nRob has 55 grapes, and Kevin's friend has 40 more grapes than Rob. So, Kevin's friend has 55+40=95 grapes.\nKevin's friend has 95 grapes, and Kevin's neighborhood has 55 fewer grapes than Kevin's friend. So, Kevin's neighborhood has 95-55=40 grapes.\nKevin's neighborhood has 40 grapes, and Kevin's mother has 88 more grapes than Kevin's neighborhood. So, Kevin's mother has 40+88=128 grapes.\nKevin's mother has 128 grapes, and Kevin has 43 fewer grapes than Kevin's mother. So, Kevin has 128-43=85 grapes.\nThe final answer is 128.",
           "type": "text"
         }
       ]
@@ -212,7 +212,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Alice has 92 more bananas than Mallory. Victor has 10 less bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne doesn't have 79 more bananas than Sybil. Judy doesn't have 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 less bananas than Peggy. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry doesn't have 17 less bananas than Alice. Zoe has 58 less bananas than Yvonne. Ivan has 43 less bananas than Yvonne. Walter has 43 less bananas than Mallory. Nancy has 34 bananas. Grace doesn't have 41 more bananas than Xavier. Mallory has 55 less bananas than Nancy. Sybil doesn't have 3 less bananas than Nancy. Peggy has 50 more bananas than Walter. Trent doesn't have 33 less bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
+          "text": "Context: Alice has 92 more bananas than Mallory. Victor has 10 fewer bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne doesn't have 79 more bananas than Sybil. Judy doesn't have 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 fewer bananas than Peggy. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry doesn't have 17 fewer bananas than Alice. Zoe has 58 fewer bananas than Yvonne. Ivan has 43 fewer bananas than Yvonne. Walter has 43 fewer bananas than Mallory. Nancy has 34 bananas. Grace doesn't have 41 more bananas than Xavier. Mallory has 55 fewer bananas than Nancy. Sybil doesn't have 3 fewer bananas than Nancy. Peggy has 50 more bananas than Walter. Trent doesn't have 33 fewer bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
           "type": "text"
         }
       ]
@@ -221,7 +221,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nNancy has 34 bananas, and Mallory has 55 less bananas than Nancy. So, Mallory has 34-55=-21 bananas.\nMallory has -21 bananas, and Walter has 43 less bananas than Mallory. So, Walter has -21-43=-64 bananas.\nWalter has -64 bananas, and Peggy has 50 more bananas than Walter. So, Peggy has -64+50=-14 bananas.\nPeggy has -14 bananas, and Quentin has 35 less bananas than Peggy. So, Quentin has -14-35=-49 bananas.\nThe final answer is -49.",
+          "text": "Answer:\nNancy has 34 bananas, and Mallory has 55 fewer bananas than Nancy. So, Mallory has 34-55=-21 bananas.\nMallory has -21 bananas, and Walter has 43 fewer bananas than Mallory. So, Walter has -21-43=-64 bananas.\nWalter has -64 bananas, and Peggy has 50 more bananas than Walter. So, Peggy has -64+50=-14 bananas.\nPeggy has -14 bananas, and Quentin has 35 fewer bananas than Peggy. So, Quentin has -14-35=-49 bananas.\nThe final answer is -49.",
           "type": "text"
         }
       ]
@@ -230,7 +230,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 less apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier doesn't have 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
+          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 fewer apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier doesn't have 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
           "type": "text"
         }
       ]
@@ -239,7 +239,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nEve has 2 apples, and Yvonne's son has 3 more apples than Eve. So, Yvonne's son has 2+3=5 apples. \nYvonne's son has 5 apples, and Zoe has 10 more apples than Yvonne's son. So, Zoe has 5+10=15 apples. \nZoe has 15 apples, and Yvonne has 3 less apples than Zoe. So, Yvonne has 15-3=12 apples. \nThe final answer is 12.",
+          "text": "Answer:\nEve has 2 apples, and Yvonne's son has 3 more apples than Eve. So, Yvonne's son has 2+3=5 apples. \nYvonne's son has 5 apples, and Zoe has 10 more apples than Yvonne's son. So, Zoe has 5+10=15 apples. \nZoe has 15 apples, and Yvonne has 3 fewer apples than Zoe. So, Yvonne has 15-3=12 apples. \nThe final answer is 12.",
           "type": "text"
         }
       ]
@@ -248,7 +248,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Kevin's friend has 33 less grapes than Rob. Ivan doesn't have 43 more grapes than Victor. Victor doesn't have 33 less grapes than Kevin's friend. Ursula has 75 less grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia doesn't have 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy doesn't have 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 less grapes than Heidi. Eve has 84 less grapes than Sybil. Xavier doesn't 36 more grapes than Heidi. Sybil has 55 less grapes than Trent. Kevin has 43 less grapes than Zoe. Heidi has 61 less grapes than Trent. Zoe has 88 more grapes than Sybil. Trent has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
+          "text": "Context: Kevin's friend has 33 fewer grapes than Rob. Ivan doesn't have 43 more grapes than Victor. Victor doesn't have 33 fewer grapes than Kevin's friend. Ursula has 75 fewer grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia doesn't have 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy doesn't have 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 fewer grapes than Heidi. Eve has 84 fewer grapes than Sybil. Xavier doesn't 36 more grapes than Heidi. Sybil has 55 fewer grapes than Trent. Kevin has 43 fewer grapes than Zoe. Heidi has 61 fewer grapes than Trent. Zoe has 88 more grapes than Sybil. Trent has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
           "type": "text"
         }
       ]
@@ -257,7 +257,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nRob has 55 grapes, and Trent has 40 more grapes than Rob. So, Trent has 55+40=95 grapes.\nTrent has 95 grapes, and Sybil has 55 less grapes than Trent. So, Sybil has 95-55=40 grapes.\nSybil has 40 grapes, and Zoe has 88 more grapes than Sybil. So, Zoe has 40+88=128 grapes.\nZoe has 128 grapes, and Kevin has 43 less grapes than Zoe. So, Kevin has 128-43=85 grapes.\nThe final answer is 128.",
+          "text": "Answer:\nRob has 55 grapes, and Trent has 40 more grapes than Rob. So, Trent has 55+40=95 grapes.\nTrent has 95 grapes, and Sybil has 55 fewer grapes than Trent. So, Sybil has 95-55=40 grapes.\nSybil has 40 grapes, and Zoe has 88 more grapes than Sybil. So, Zoe has 40+88=128 grapes.\nZoe has 128 grapes, and Kevin has 43 fewer grapes than Zoe. So, Kevin has 128-43=85 grapes.\nThe final answer is 128.",
           "type": "text"
         }
       ]
@@ -296,7 +296,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Nancy has 34 bananas. Mallory has 55 less bananas than Nancy. Walter has 43 less bananas than Mallory. Peggy has 50 more bananas than Walter. Quentin has 35 less bananas than Peggy. Alice has 92 more bananas than Mallory. Victor has 10 less bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry has 17 less bananas than Alice. Zoe has 58 less bananas than Yvonne. Ivan has 43 less bananas than Yvonne. Grace has 41 more bananas than Xavier. Sybil has 3 less bananas than Nancy. Trent has 33 less bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
+          "text": "Context: Nancy has 34 bananas. Mallory has 55 fewer bananas than Nancy. Walter has 43 fewer bananas than Mallory. Peggy has 50 more bananas than Walter. Quentin has 35 fewer bananas than Peggy. Alice has 92 more bananas than Mallory. Victor has 10 fewer bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry has 17 fewer bananas than Alice. Zoe has 58 fewer bananas than Yvonne. Ivan has 43 fewer bananas than Yvonne. Grace has 41 more bananas than Xavier. Sybil has 3 fewer bananas than Nancy. Trent has 33 fewer bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
           "type": "text"
         }
       ]
@@ -305,7 +305,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nNancy has 34 bananas, and Mallory has 55 less bananas than Nancy. So, Mallory has 34-55=-21 bananas.\nMallory has -21 bananas, and Walter has 43 less bananas than Mallory. So, Walter has -21-43=-64 bananas.\nWalter has -64 bananas, and Peggy has 50 more bananas than Walter. So, Peggy has -64+50=-14 bananas.\nPeggy has -14 bananas, and Quentin has 35 less bananas than Peggy. So, Quentin has -14-35=-49 bananas.\nThe final answer is -49.",
+          "text": "Answer:\nNancy has 34 bananas, and Mallory has 55 fewer bananas than Nancy. So, Mallory has 34-55=-21 bananas.\nMallory has -21 bananas, and Walter has 43 fewer bananas than Mallory. So, Walter has -21-43=-64 bananas.\nWalter has -64 bananas, and Peggy has 50 more bananas than Walter. So, Peggy has -64+50=-14 bananas.\nPeggy has -14 bananas, and Quentin has 35 fewer bananas than Peggy. So, Quentin has -14-35=-49 bananas.\nThe final answer is -49.",
           "type": "text"
         }
       ]
@@ -314,7 +314,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Zoe has 10 more apples than Yvonne's son. Yvonne has 3 less apples than Zoe. Alice has 3 more apples than Grace. Quentin has 3 more apples than Yvonne. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier has 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
+          "text": "Context: Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Zoe has 10 more apples than Yvonne's son. Yvonne has 3 fewer apples than Zoe. Alice has 3 more apples than Grace. Quentin has 3 more apples than Yvonne. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier has 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
           "type": "text"
         }
       ]
@@ -323,7 +323,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nEve has 2 apples, and Yvonne's son has 3 more apples than Eve. So, Yvonne's son has 2+3=5 apples. \nYvonne's son has 5 apples, and Zoe has 10 more apples than Yvonne's son. So, Zoe has 5+10=15 apples. \nZoe has 15 apples, and Yvonne has 3 less apples than Zoe. So, Yvonne has 15-3=12 apples. \nThe final answer is 12.",
+          "text": "Answer:\nEve has 2 apples, and Yvonne's son has 3 more apples than Eve. So, Yvonne's son has 2+3=5 apples. \nYvonne's son has 5 apples, and Zoe has 10 more apples than Yvonne's son. So, Zoe has 5+10=15 apples. \nZoe has 15 apples, and Yvonne has 3 fewer apples than Zoe. So, Yvonne has 15-3=12 apples. \nThe final answer is 12.",
           "type": "text"
         }
       ]
@@ -332,7 +332,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Rob has 55 grapes. Trent has 40 more grapes than Rob. Sybil has 55 less grapes than Trent. Zoe has 88 more grapes than Sybil. Kevin has 43 less grapes than Zoe. Kevin's friend has 33 less grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 less grapes than Kevin's friend. Ursula has 75 less grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Frank has 70 less grapes than Heidi. Eve has 84 less grapes than Sybil. Xavier has 36 more grapes than Heidi. Heidi has 61 less grapes than Trent. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
+          "text": "Context: Rob has 55 grapes. Trent has 40 more grapes than Rob. Sybil has 55 fewer grapes than Trent. Zoe has 88 more grapes than Sybil. Kevin has 43 fewer grapes than Zoe. Kevin's friend has 33 fewer grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 fewer grapes than Kevin's friend. Ursula has 75 fewer grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Frank has 70 fewer grapes than Heidi. Eve has 84 fewer grapes than Sybil. Xavier has 36 more grapes than Heidi. Heidi has 61 fewer grapes than Trent. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
           "type": "text"
         }
       ]
@@ -341,7 +341,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Answer:\nRob has 55 grapes, and Trent has 40 more grapes than Rob. So, Trent has 55+40=95 grapes.\nTrent has 95 grapes, and Sybil has 55 less grapes than Trent. So, Sybil has 95-55=40 grapes.\nSybil has 40 grapes, and Zoe has 88 more grapes than Sybil. So, Zoe has 40+88=128 grapes.\nZoe has 128 grapes, and Kevin has 43 less grapes than Zoe. So, Kevin has 128-43=85 grapes.\nThe final answer is 128.",
+          "text": "Answer:\nRob has 55 grapes, and Trent has 40 more grapes than Rob. So, Trent has 55+40=95 grapes.\nTrent has 95 grapes, and Sybil has 55 fewer grapes than Trent. So, Sybil has 95-55=40 grapes.\nSybil has 40 grapes, and Zoe has 88 more grapes than Sybil. So, Zoe has 40+88=128 grapes.\nZoe has 128 grapes, and Kevin has 43 fewer grapes than Zoe. So, Kevin has 128-43=85 grapes.\nThe final answer is 128.",
           "type": "text"
         }
       ]
@@ -398,7 +398,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Larry has 6 more apples than Zoe. Ivan has 4 more apples than Nancy. Olivia has 3 apples. Zoe has 3 less apples than Sybil. Sybil has -1 apples. Nancy has 0 apples. Carol has 5 less apples than Olivia.\nQuestion: How many apples does Zoe have?",
+          "text": "Context: Larry has 6 more apples than Zoe. Ivan has 4 more apples than Nancy. Olivia has 3 apples. Zoe has 3 fewer apples than Sybil. Sybil has -1 apples. Nancy has 0 apples. Carol has 5 fewer apples than Olivia.\nQuestion: How many apples does Zoe have?",
           "type": "text"
         }
       ]
@@ -407,7 +407,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Sybil has -1 apples, and Zoe has 3 less apples than Sybil. So, Zoe has -1-3=-4 apples.",
+          "text": "Sybil has -1 apples, and Zoe has 3 fewer apples than Sybil. So, Zoe has -1-3=-4 apples.",
           "type": "text"
         }
       ]
@@ -425,7 +425,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 less apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier has 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
+          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 fewer apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier has 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
           "type": "text"
         }
       ]
@@ -452,7 +452,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Zoe has 15 apples, and Yvonne has 3 less apples than Zoe. So, Yvonne has 15-3=12 apples. ",
+          "text": "Zoe has 15 apples, and Yvonne has 3 fewer apples than Zoe. So, Yvonne has 15-3=12 apples. ",
           "type": "text"
         }
       ]
@@ -470,7 +470,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Victor has 11 more apples than Mallory. Judy's father has 3 less apples than Peggy's father. Rob has -2 more apples than Eve. Peggy's father  has -5 apples. Walter has 3 more apples than Peggy's father. Eve has 3 apples. Mallory has 3 more apples than Eve. Kevin has 12 more apples than Victor.\nHow many apples does Kevin have?",
+          "text": "Context: Victor has 11 more apples than Mallory. Judy's father has 3 fewer apples than Peggy's father. Rob has -2 more apples than Eve. Peggy's father  has -5 apples. Walter has 3 more apples than Peggy's father. Eve has 3 apples. Mallory has 3 more apples than Eve. Kevin has 12 more apples than Victor.\nHow many apples does Kevin have?",
           "type": "text"
         }
       ]
@@ -572,7 +572,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Larry has 6 more apples than Zoe. Ivan has 4 more apples than Nancy. Olivia has 3 apples. Zoe has 3 less apples than Sybil. Sybil has -1 apples. Nancy has 0 apples. Carol has 5 less apples than Olivia.\nQuestion: How many apples does Zoe have?",
+          "text": "Context: Larry has 6 more apples than Zoe. Ivan has 4 more apples than Nancy. Olivia has 3 apples. Zoe has 3 fewer apples than Sybil. Sybil has -1 apples. Nancy has 0 apples. Carol has 5 fewer apples than Olivia.\nQuestion: How many apples does Zoe have?",
           "type": "text"
         }
       ]
@@ -581,7 +581,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Olivia has 3 apples, and Carol has 5 less apples than Olivia. So, Carol has 3-5=2 apples.",
+          "text": "Olivia has 3 apples, and Carol has 5 fewer apples than Olivia. So, Carol has 3-5=2 apples.",
           "type": "text"
         }
       ]
@@ -590,7 +590,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Sybil has -1 apples, and Zoe has 3 less apples than Sybil. So, Zoe has -1-3=-4 apples.",
+          "text": "Sybil has -1 apples, and Zoe has 3 fewer apples than Sybil. So, Zoe has -1-3=-4 apples.",
           "type": "text"
         }
       ]
@@ -608,7 +608,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 less apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier has 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
+          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 fewer apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier has 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
           "type": "text"
         }
       ]
@@ -635,7 +635,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Zoe has 15 apples, and Yvonne has 3 less apples than Zoe. So, Yvonne has 15-3=12 apples. ",
+          "text": "Zoe has 15 apples, and Yvonne has 3 fewer apples than Zoe. So, Yvonne has 15-3=12 apples. ",
           "type": "text"
         }
       ]
@@ -653,7 +653,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Victor has 11 more apples than Mallory. Judy's father has 3 less apples than Peggy's father. Rob has -2 more apples than Eve. Peggy's father  has -5 apples. Walter has 3 more apples than Peggy's father. Eve has 3 apples. Mallory has 3 more apples than Eve. Kevin has 12 more apples than Victor.\nQuestion: How many apples does Kevin have?",
+          "text": "Context: Victor has 11 more apples than Mallory. Judy's father has 3 fewer apples than Peggy's father. Rob has -2 more apples than Eve. Peggy's father  has -5 apples. Walter has 3 more apples than Peggy's father. Eve has 3 apples. Mallory has 3 more apples than Eve. Kevin has 12 more apples than Victor.\nQuestion: How many apples does Kevin have?",
           "type": "text"
         }
       ]
@@ -662,7 +662,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Peggy's father  has -5 apples, and Judy's father has 3 less apples than Peggy's father. So, Judy's father has-5-3=-8 apples.",
+          "text": "Peggy's father  has -5 apples, and Judy's father has 3 fewer apples than Peggy's father. So, Judy's father has-5-3=-8 apples.",
           "type": "text"
         }
       ]

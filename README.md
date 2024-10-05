@@ -61,10 +61,10 @@ example
 #### Llama-2
 ```
 # GSM8K Reasoning
-./scripts/model/GSM8K_ex1/main_pipline.sh [project_dir_path] [heuristic_type] [model_name]
+./scripts/model/GSM8K_ex1/main.sh [project_dir_path] [heuristic_type] [model_name]
 
 # Artificial Data Reasoning
-./scripts/model/artificial_data_ex1/main_pipline.sh [project_dir_path] [heuristic_type] flat [model_name]
+./scripts/model/artificial_data_ex1/main.sh [project_dir_path] [heuristic_type] flat [model_name]
 ```
 
 #### Analysis
@@ -90,7 +90,7 @@ Reproduce experiment 2 by executing the following.
 
 #### Llama-2
 ```
-./scripts/model/artificial_data_ex2/main_pipline.sh [project_dir_path] [heuristic_type] flat [model_name] [reasoning_step]
+./scripts/model/artificial_data_ex2/main.sh [project_dir_path] [heuristic_type] flat [model_name] [reasoning_step]
 ```
 
 #### Analysis

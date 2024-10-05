@@ -118,17 +118,17 @@ class Instance():
     def _make_gold_outputs(self, sentences:List[Sentence],names:List[str],object:str) -> List[str]:
         if sentences[1].operator == "more":
             number_of_AB = sentences[0].number + sentences[1].number
-        elif sentences[1].operator == "less":
+        elif sentences[1].operator == "fewer":
             number_of_AB = sentences[0].number - sentences[1].number
         
         if sentences[2].operator == "more":
             number_of_BC = number_of_AB + sentences[2].number
-        elif sentences[2].operator == "less":
+        elif sentences[2].operator == "fewer":
             number_of_BC = number_of_AB - sentences[2].number
             
         if sentences[3].operator == "more":
             number_of_CD = number_of_BC + sentences[3].number
-        elif sentences[3].operator == "less":
+        elif sentences[3].operator == "fewer":
             number_of_CD = number_of_BC - sentences[3].number
         
         gold_outputs = [
@@ -143,17 +143,17 @@ class Instance():
     def _make_logic_gold_outputs(self, sentences:List[Sentence],names:List[str],redundant_sentence:Sentence,object:str) -> List[str]:
         if redundant_sentence.operator == "more":
             number_of_AB = sentences[0].number + redundant_sentence.number
-        elif redundant_sentence.operator == "less":
+        elif redundant_sentence.operator == "fewer":
             number_of_AB = sentences[0].number - redundant_sentence.number
         
         if sentences[2].operator == "more":
             number_of_BC = number_of_AB + sentences[2].number
-        elif sentences[2].operator == "less":
+        elif sentences[2].operator == "fewer":
             number_of_BC = number_of_AB - sentences[2].number
             
         if sentences[3].operator == "more":
             number_of_CD = number_of_BC + sentences[3].number
-        elif sentences[3].operator == "less":
+        elif sentences[3].operator == "fewer":
             number_of_CD = number_of_BC - sentences[3].number
         
         gold_outputs = [
@@ -167,7 +167,7 @@ class Instance():
     """
     def _make_minimum_tree(self, name1, relate_name:str,object:str="apples",num=random.randint(0,5)) -> List[Sentence]:
         sentences = []
-        sentences.append(RelationalSentence(name1,num,relate_name=relate_name,operator=random.choice(["more","less"]),object=object))
+        sentences.append(RelationalSentence(name1,num,relate_name=relate_name,operator=random.choice(["more","fewer"]),object=object))
         return sentences
 
 

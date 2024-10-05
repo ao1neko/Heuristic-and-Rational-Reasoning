@@ -7,6 +7,345 @@ from src.artificial_data_ex2.utils import read_jsonl_file
 from pathlib import Path
 from tqdm import tqdm
 
+
+"""
+        prompt=[
+    {
+      "role": "system",
+      "content": [
+        {
+          "text": "Answer the context question according to the following example.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Xavier has 59 books. Kevin's mother has 75 more books than Xavier. Mallory has 96 fewer books than Kevin's friend. Bill has 64 fewer books than Xavier. Ana has 79 more books than Kevin's friend. Jack has 22 fewer books than Kevin's mother. Vince has 36 fewer books than Bill. Grace has 32 fewer books than Bill. Nancy has 69 fewer books than Olive. Sam has 74 more books than Xavier. Walter has 59 fewer books than Kevin's grandparent. Ruth has 15 fewer books than Xavier. Dan has 70 more books than Ivy. Kevin has 47 more books than Eve. Kevin's classmate has 74 fewer books than Eve. Gina has 11 fewer books than Sam. Wendy has 30 fewer books than Sam. Yvonne has 19 fewer books than Kevin's grandparent. Trent has 89 fewer books than Ivy. Paul has 2 fewer books than Bill. Mia has 34 fewer books than Kevin's mother. Larry has 93 fewer books than Paul. Kevin's friend has 45 more books than Paul. Quentin has 1 more books than Olive. Olive has 49 more books than Paul. Zoe has 38 more books than Kevin's friend. Ed has 73 more books than Ivy. Frank has 93 fewer books than Kevin's mother. Eve has 66 more books than Paul. Dave has 38 more books than Xavier. Olivia has 52 fewer books than Eve. Ivan has 19 more books than Kevin's grandparent. Rob has 84 fewer books than Eve. Peggy has 11 more books than Paul. Zack has 4 more books than Kevin's friend. Bob has 71 fewer books than Olive. Victor has 98 fewer books than Eve. Ivy has 92 fewer books than Bill. Heidi has 36 more books than Kevin's mother. Quinn has 94 more books than Ivy. Nick has 38 fewer books than Olive. Tina has 29 more books than Kevin's grandparent. Kevin's grandparent has 95 more books than Bill. Cathy has 4 more books than Sam. Ursula has 94 fewer books than Sam.\nQuestion: How many books does Kevin have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Xavier has 59 books, and Bill has 64 fewer books than Xavier. So, Bill has 59-64=-5 books.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Bill has -5 books, and Paul has 2 fewer books than Bill. So, Paul has -5-2=-7 books.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Paul has -7 books, and Eve has 66 more books than Paul. So, Eve has -7+66=59 books.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Eve has 59 books, and Kevin has 47 more books than Eve. So, Kevin has 59+47=106 books.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "The final answer is 106.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Alice has 92 more bananas than Mallory. Victor has 10 fewer bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 fewer bananas than Peggy. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry has 17 fewer bananas than Alice. Zoe has 58 fewer bananas than Yvonne. Ivan has 43 fewer bananas than Yvonne. Walter has 43 fewer bananas than Mallory. Nancy has 34 bananas. Grace has 41 more bananas than Xavier. Mallory has 55 fewer bananas than Nancy. Sybil has 3 fewer bananas than Nancy. Peggy has 50 more bananas than Walter. Trent has 33 fewer bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Nancy has 34 bananas, and Mallory has 55 fewer bananas than Nancy. So, Mallory has 34-55=-21 bananas.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Mallory has -21 bananas, and Walter has 43 fewer bananas than Mallory. So, Walter has -21-43=-64 bananas.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Walter has -64 bananas, and Peggy has 50 more bananas than Walter. So, Peggy has -64+50=-14 bananas.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Peggy has -14 bananas, and Quentin has 35 fewer bananas than Peggy. So, Quentin has -14-35=-49 bananas.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "The final answer is -49."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Kevin's friend has 33 fewer grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 fewer grapes than Kevin's friend. Ursula has 75 fewer grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 fewer grapes than Heidi. Eve has 84 fewer grapes than Sybil. Xavier has 36 more grapes than Heidi. Sybil has 55 fewer grapes than Trent. Kevin has 43 fewer grapes than Zoe. Heidi has 61 fewer grapes than Trent. Zoe has 88 more grapes than Sybil. Trent has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Rob has 55 grapes, and Trent has 40 more grapes than Rob. So, Trent has 55+40=95 grapes.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Trent has 95 grapes, and Sybil has 55 fewer grapes than Trent. So, Sybil has 95-55=40 grapes.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Sybil has 40 grapes, and Zoe has 88 more grapes than Sybil. So, Zoe has 40+88=128 grapes.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Zoe has 128 grapes, and Kevin has 43 fewer grapes than Zoe. So, Kevin has 128-43=85 grapes.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "The final answer is 85."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Tina has 51 fewer books than Ana. Hank has 39 fewer books than Gina. Ana has 58 more books than Olive. Kim has 95 more books than Olive. Paul has 98 more books than Kim. Victor has 72 more books than Grace. Quentin has 13 fewer books than Victor. Kevin has 93 fewer books than Kim. Nick has 48 fewer books than Gina. Ivan has 96 more books than Grace. Eve has 71 more books than Kim. Carol has 79 more books than Olive. Olive has 61 fewer books than Grace. Walter has 75 fewer books than Grace. Sam has 57 fewer books than Olive. Bob has 15 more books than Grace. Yvonne has 49 more books than Victor. Dave has 36 fewer books than Ana. Cathy has 48 more books than Kim. Judy has 92 fewer books than Paul. Ivy has 68 more books than Paul. Vince has 25 more books than Ana. Ruth has 30 fewer books than Victor. Jack has 48 more books than Gina. Ursula has 63 more books than Gina. Quinn has 87 fewer books than Gina. Sybil has 55 more books than Olive. Lance has 51 more books than Ana. Olivia has 95 fewer books than Victor. Gina has 30 fewer books than Kim. Heidi has 70 fewer books than Paul. Zack has 16 fewer books than Paul. Grace has 17 books.\nQuestion: How many books does Jack have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Grace has 17 books, and Olive has 61 fewer books than Grace. So, Olive has 17-61=-44 books.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Olive has -44 books, and Kim has 95 more books than Olive. So, Kim has -44+95=51 books.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Kim has 51 books, and Gina has 30 fewer books than Kim. So, Gina has 51-30=21 books.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Gina has 21 books, and Jack has 48 more books than Gina. So, Jack has 21+48=69 books.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "The final answer is 69."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Jack has 23 fewer apples than Ana's father. Ana's friend has 16 fewer apples than Dave. Ana's grandparent has 30 more apples than Sybil. Ruth has 78 fewer apples than Dave. Judy has 21 fewer apples than Kim. Mallory has 5 fewer apples than Ana's father. Quentin has 39 fewer apples than Sybil. Sam has 46 fewer apples than Larry. Bob has 54 more apples than Quentin. Victor has 79 fewer apples than Ana's friend. Zoe has 54 more apples than Sybil. Kim has 54 more apples than Dave. Hank has 24 fewer apples than Ana's grandparent. Ana's father has 85 more apples than Kim. Sybil has 43 more apples than Kim. Frank has 61 fewer apples than Larry. Nick has 31 fewer apples than Ana's grandparent. Alice has 7 more apples than Judy. Eve has 33 more apples than Kim. Ana has 84 more apples than Quentin. Carol has 21 fewer apples than Ana's grandparent. Quinn has 94 more apples than Larry. Olivia has 41 fewer apples than Tina. Olive has 7 fewer apples than Ana's friend. Yvonne has 36 more apples than Ana's grandparent. Dave has 89 apples. Walter has 31 fewer apples than Sybil. Ivan has 10 fewer apples than Tina. Mia has 64 more apples than Ana's father. Grace has 80 more apples than Ana's friend. Bill has 35 more apples than Dave. Tina has 71 fewer apples than Dave. Trent has 94 fewer apples than Quentin. Peggy has 47 more apples than Tina. Rob has 9 fewer apples than Quentin. Heidi has 57 fewer apples than Judy. Wendy has 73 more apples than Kim. Ed has 71 more apples than Judy. Lance has 99 more apples than Judy. Zack has 61 fewer apples than Larry. Ana's classmate has 1 more apples than Quentin. Kevin has 66 fewer apples than Tina. Nancy has 93 fewer apples than Ana's father. Ivy has 97 fewer apples than Ana's friend. Larry has 82 fewer apples than Sybil.\nQuestion: How many apples does Ana have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Dave has 89 apples, and Kim has 54 more apples than Dave. So, Kim has 89+54=143 apples.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Kim has 143 apples, and Sybil has 43 more apples than Kim. So, Sybil has 143+43=186 apples.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Sybil has 186 apples, and Quentin has 39 fewer apples than Sybil. So, Quentin has 186-39=147 apples.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Quentin has 147 apples, and Ana has 84 more apples than Quentin. So, Ana has 147+84=231 apples",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "The final answer is 231."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Ana has 33 fewer apples than Zoe. Eve has 21 fewer apples than Zoe. Heidi has 49 more apples than Ed. Sam has 13 fewer apples than Amy's son. Ivy has 76 more apples than Finn. Kevin has 7 fewer apples than Ed. Dave has 11 more apples than Finn. Nancy has 20 fewer apples than Finn. Cathy has 92 more apples than Zoe. Walter has 94 more apples than Heidi. Rob has 40 more apples than Amy's grandparent. Sybil has 18 more apples than Ed. Mallory has 30 more apples than Heidi. Ed has 35 apples. Vince has 54 fewer apples than Ed. Amy's son has 93 more apples than Ed. Paul has 84 more apples than Zoe. Amy's grandparent has 85 more apples than Zoe. Alice has 11 more apples than Zoe. Ruth has 3 more apples than Ed. Quentin has 40 more apples than Zoe. Tina has 8 fewer apples than Heidi. Dylan has 13 more apples than Finn. Ivan has 54 more apples than Amy's grandparent. Trent has 57 fewer apples than Ed. Carol has 19 fewer apples than Heidi. Ben has 29 more apples than Heidi. Lance has 64 fewer apples than Finn. Amy has 25 fewer apples than Finn. Wendy has 94 fewer apples than Heidi. Kim has 54 fewer apples than Ed. Amy's mother has 90 fewer apples than Finn. Yvonne has 51 fewer apples than Ed. Ursula has 50 fewer apples than Amy's friend. Frank has 92 more apples than Finn. Olivia has 87 fewer apples than Finn. Xavier has 32 fewer apples than Finn. Emma has 83 more apples than Heidi. Peggy has 64 more apples than Amy's friend. Bill has 81 fewer apples than Ed. Amy's friend has 1 fewer apples than Heidi. Zoe has 93 more apples than Heidi. Cindy has 25 more apples than Zoe. Finn has 69 fewer apples than Zoe. Nick has 8 fewer apples than Amy's son. Grace has 66 fewer apples than Zoe. Judy has 3 more apples than Heidi.\nQuestion: How many apples does Amy have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Ed has 35 apples, and Heidi has 49 more apples than Ed. So, Heidi has 35+49=84 apples.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Heidi has 84 apples, and Zoe has 93 more apples than Heidi. So, Zoe has 84+93=177 apples.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Zoe has 177 apples, and Finn has 69 fewer apples than Zoe. So, Finn has 177-69=108 apples.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "Finn has 108 apples, and Amy has 25 fewer apples than Finn. So, Amy has 108-25=83 apples.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "The final answer is 83."
+        }
+      ]
+    },
+  ]
+"""
+
 def main(args):
     inputs, outputs, _ = read_jsonl_file(args.input_file)
     #inputs = inputs[:50]
@@ -62,7 +401,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Alice has 92 more bananas than Mallory. Victor has 10 less bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 less bananas than Peggy. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry has 17 less bananas than Alice. Zoe has 58 less bananas than Yvonne. Ivan has 43 less bananas than Yvonne. Walter has 43 less bananas than Mallory. Nancy has 34 bananas. Grace has 41 more bananas than Xavier. Mallory has 55 less bananas than Nancy. Sybil has 3 less bananas than Nancy. Peggy has 50 more bananas than Walter. Trent has 33 less bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
+          "text": "Context: Alice has 92 more bananas than Mallory. Victor has 10 fewer bananas than Walter. Xavier has 59 more bananas than Sybil. Yvonne has 79 more bananas than Sybil. Judy has 23 more bananas than Alice. Dave has 60 more bananas than Victor. Quentin has 35 fewer bananas than Peggy. Heidi has 95 more bananas than Victor. Ursula doesn't have 32 more bananas than Peggy. Larry has 17 fewer bananas than Alice. Zoe has 58 fewer bananas than Yvonne. Ivan has 43 fewer bananas than Yvonne. Walter has 43 fewer bananas than Mallory. Nancy has 34 bananas. Grace has 41 more bananas than Xavier. Mallory has 55 fewer bananas than Nancy. Sybil has 3 fewer bananas than Nancy. Peggy has 50 more bananas than Walter. Trent has 33 fewer bananas than Xavier.\nQuestion: How many bananas does Quentin have?",
           "type": "text"
         }
       ]
@@ -71,7 +410,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Nancy has 34 bananas, and Mallory has 55 less bananas than Nancy. So, Mallory has 34-55=-21 bananas.",
+          "text": "Nancy has 34 bananas, and Mallory has 55 fewer bananas than Nancy. So, Mallory has 34-55=-21 bananas.",
           "type": "text"
         }
       ]
@@ -80,7 +419,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Mallory has -21 bananas, and Walter has 43 less bananas than Mallory. So, Walter has -21-43=-64 bananas.",
+          "text": "Mallory has -21 bananas, and Walter has 43 fewer bananas than Mallory. So, Walter has -21-43=-64 bananas.",
           "type": "text"
         }
       ]
@@ -98,7 +437,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Peggy has -14 bananas, and Quentin has 35 less bananas than Peggy. So, Quentin has -14-35=-49 bananas.",
+          "text": "Peggy has -14 bananas, and Quentin has 35 fewer bananas than Peggy. So, Quentin has -14-35=-49 bananas.",
           "type": "text"
         }
       ]
@@ -116,7 +455,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 less apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier doesn't have 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
+          "text": "Context: Zoe has 10 more apples than Yvonne's son. Eve has 2 apples. Yvonne's son has 3 more apples than Eve. Quentin has 3 more apples than Yvonne. Yvonne has 3 fewer apples than Zoe. Alice has 3 more apples than Grace. Trent has 34 more apples than Zoe. Ivan has 3 apples.  Ursula has 3 more apples than Zoe. Grace has 3 apples. Xavier doesn't have 3 more apples than Ivan. \nQuestion: How many apples does Yvonne have?",
           "type": "text"
         }
       ]
@@ -143,7 +482,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Zoe has 15 apples, and Yvonne has 3 less apples than Zoe. So, Yvonne has 15-3=12 apples. ",
+          "text": "Zoe has 15 apples, and Yvonne has 3 fewer apples than Zoe. So, Yvonne has 15-3=12 apples. ",
           "type": "text"
         }
       ]
@@ -161,7 +500,7 @@ def main(args):
       "role": "user",
       "content": [
         {
-          "text": "Kevin's friend has 33 less grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 less grapes than Kevin's friend. Ursula has 75 less grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 less grapes than Heidi. Eve has 84 less grapes than Sybil. Xavier has 36 more grapes than Heidi. Sybil has 55 less grapes than Trent. Kevin has 43 less grapes than Zoe. Heidi has 61 less grapes than Trent. Zoe has 88 more grapes than Sybil. Trent has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
+          "text": "Context: Kevin's friend has 33 fewer grapes than Rob. Ivan has 43 more grapes than Victor. Victor has 33 fewer grapes than Kevin's friend. Ursula has 75 fewer grapes than Zoe. Alice has 11 more grapes than Eve. Dave has 11 more grapes than Eve. Olivia has 29 more grapes than Kevin's friend. Mallory has 97 more grapes than Olivia. Judy has 78 more grapes than Olivia. Rob has 55 grapes. Frank has 70 fewer grapes than Heidi. Eve has 84 fewer grapes than Sybil. Xavier has 36 more grapes than Heidi. Sybil has 55 fewer grapes than Trent. Kevin has 43 fewer grapes than Zoe. Heidi has 61 fewer grapes than Trent. Zoe has 88 more grapes than Sybil. Trent has 40 more grapes than Rob. Walter has 38 more grapes than Victor.\nQuestion: How many grapes does Kevin have?",
           "type": "text"
         }
       ]
@@ -179,7 +518,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Trent has 95 grapes, and Sybil has 55 less grapes than Trent. So, Sybil has 95-55=40 grapes.",
+          "text": "Trent has 95 grapes, and Sybil has 55 fewer grapes than Trent. So, Sybil has 95-55=40 grapes.",
           "type": "text"
         }
       ]
@@ -197,7 +536,7 @@ def main(args):
       "role": "assistant",
       "content": [
         {
-          "text": "Zoe has 128 grapes, and Kevin has 43 less grapes than Zoe. So, Kevin has 128-43=85 grapes.",
+          "text": "Zoe has 128 grapes, and Kevin has 43 fewer grapes than Zoe. So, Kevin has 128-43=85 grapes.",
           "type": "text"
         }
       ]
@@ -211,6 +550,234 @@ def main(args):
         }
       ]
     }
+  ]
+    elif args.prompt_type == "flat_distract":
+        prompt=[
+    {
+      "role": "system",
+      "content": [
+        {
+          "text": "Answer the context question according to the following example.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Kristopher has 36 fewer grapes than Olive. Mallory has 17 more grapes than Debbi. Yvonne has 33 more grapes than Gina. Kara has 5 more grapes than Kristopher. Frank has 59 fewer grapes than Olive. Brande has 29 more grapes than Debbi. Ben has 73 fewer grapes than Olive. Sammy has 9 more grapes than Heidi. Gina has 95 fewer grapes than Sam. Heidi has 90 fewer grapes than Frank. Cindy has 35 more grapes than Debbi. Derrek has 59 fewer grapes than Frank. Kim has 6 fewer grapes than Frank. Mia has 78 more grapes than Sam. Trent has 31 more grapes than Kristopher. Eugene has 15 fewer grapes than Heidi. Zack has 56 more grapes than Sam. Ivy has 34 more grapes than Debbi. Leta has 53 fewer grapes than Gina. Iola has 82 more grapes than Olive. Nancy has 38 more grapes than Sam. Xavier has 95 more grapes than Sam. Rob has 20 more grapes than Debbi. Peggy has 22 more grapes than Frank. Chad has 14 more grapes than Debbi. Kevin has 55 more grapes than Olive. Dylan has 52 more grapes than Sam. Heath has 51 fewer grapes than Olive. Judy has 98 fewer grapes than Frank. Nick has 74 more grapes than Debbi. Ivan has 72 more grapes than Sam. Sam has 32 more grapes than Frank. Alice has 76 more grapes than Olive. Quinn has 32 fewer grapes than Frank. Quentin has 65 more grapes than Frank. Finn has 37 fewer grapes than Sam. Callie has 68 more grapes than Frank. Debbi has 77 more grapes than Sam. Olivia has 48 more grapes than Frank. Bill has 78 fewer grapes than Olive. Olive has 11 grapes. Victor has 41 more grapes than Olive. Dan has 87 fewer grapes than Debbi. Bob has 53 fewer grapes than Debbi. Ursula has 8 more grapes than Sam. Maleah has 38 fewer grapes than Debbi. Kacey has 90 more grapes than Olive.\nQuestion: How many grapes does Chad have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Olive has 11 grapes, and Frank has 59 fewer grapes than Olive. So, Frank has 11-59=-48 grapes.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Frank has -48 grapes, and Sam has 32 more grapes than Frank. So, Sam has -48+32=-16 grapes.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Sam has -16 grapes, and Debbi has 77 more grapes than Sam. So, Debbi has -16+77=61 grapes.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Debbi has 61 grapes, and Chad has 14 more grapes than Debbi. So, Chad has 61+14=75 grapes.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "The final answer is 75.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Yvonne has 36 more pencils than Larry. Judy has 50 fewer pencils than Quinn. Ursula has 69 fewer pencils than Ana. Carol has 43 more pencils than Quinn. Dan has 30 more pencils than Larry. Zoe has 57 more pencils than Ana. Jack has 41 more pencils than Ana. Yvonne's classmate has 28 fewer pencils than Quinn. Ivan has 26 fewer pencils than Quinn. Rob has 12 more pencils than Ana. Quinn has 45 fewer pencils than Ursula. Olive has 84 more pencils than Quinn. Yvonne's grandparent has 48 more pencils than Ana. Lance has 28 fewer pencils than Quinn. Xavier has 58 more pencils than Ana. Cathy has 33 fewer pencils than Yvonne's father. Bill has 58 fewer pencils than Ana. Emma has 43 more pencils than Ana. Zack has 19 more pencils than Larry. Eve has 3 fewer pencils than Larry. Trent has 98 more pencils than Yvonne's father. Nancy has 15 more pencils than Quinn. Amy has 89 fewer pencils than Larry. Tina has 43 more pencils than Ursula. Ana has 34 pencils. Yvonne's father has 100 fewer pencils than Ursula. Paul has 12 fewer pencils than Ursula. Cindy has 38 more pencils than Larry. Sybil has 39 more pencils than Larry. Sam has 46 fewer pencils than Ursula. Ivy has 91 more pencils than Quinn. Hank has 29 more pencils than Larry. Mallory has 72 more pencils than Ana. Frank has 27 more pencils than Quinn. Ruth has 37 fewer pencils than Ursula. Yvonne's friend has 64 more pencils than Larry. Kim has 2 fewer pencils than Larry. Alice has 11 fewer pencils than Ursula. Ben has 98 fewer pencils than Yvonne's classmate. Larry has 51 more pencils than Quinn. Nick has 96 fewer pencils than Yvonne's grandparent. Dylan has 40 fewer pencils than Ursula. Olivia has 94 fewer pencils than Yvonne's classmate. Victor has 41 more pencils than Ursula. Walter has 31 fewer pencils than Yvonne's grandparent. Mia has 51 fewer pencils than Ana. Heidi has 62 fewer pencils than Ursula.\nQuestion: How many pencils does Yvonne have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Ana has 34 pencils, and Ursula has 69 fewer pencils than Ana. So, Ursula has 34-69=-35 pencils.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Ursula has -35 pencils, and Quinn has 45 fewer pencils than Ursula. So, Quinn has -35-45=-80 pencils.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Quinn has -80 pencils, and Larry has 51 more pencils than Quinn. So, Larry has -80+51=-29 pencils.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Larry has -29 pencils, and Yvonne has 36 more pencils than Larry. So, Yvonne has -29+36=7 pencils.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "The final answer is 7.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Peggy has 64 fewer pencils than Ana. Eugene has 11 more pencils than Alton. Debbi has 8 more pencils than Finn. Nancy has 97 more pencils than Finn. Dave has 96 more pencils than Olivia. Judy has 33 fewer pencils than Finn. Sybil has 47 more pencils than Alton. Brad has 9 fewer pencils than Ana. Ed has 17 more pencils than Finn. Jill has 98 fewer pencils than Finn. Finn has 21 more pencils than Alton. Ana has 23 fewer pencils than Olivia. Zack has 31 fewer pencils than Alton. Chad has 81 fewer pencils than Olivia. Olivia has 72 pencils. Ursula has 23 more pencils than Olivia. Aliyah has 65 more pencils than Alton. Kristopher has 76 fewer pencils than Finn. Xavier has 43 fewer pencils than Olivia. Franklyn has 70 more pencils than Alton. Jake has 3 more pencils than Alton. Yvonne has 79 fewer pencils than Peggy. Emery has 18 more pencils than Olivia. Carol has 18 more pencils than Ana. Dan has 47 fewer pencils than Finn. Dylan has 32 more pencils than Ana. Jack has 98 fewer pencils than Alton. Rob has 70 more pencils than Ana. Kim has 47 fewer pencils than Alton. Brande has 52 more pencils than Finn. Sam has 100 fewer pencils than Peggy. Iola has 24 fewer pencils than Ana. Cathy has 78 more pencils than Alton. Mia has 55 fewer pencils than Dave. Quentin has 13 more pencils than Ana. Alton has 63 more pencils than Ana. Bill has 36 more pencils than Eugene. Derrek has 85 more pencils than Finn. Mallory has 87 fewer pencils than Olivia. Bob has 92 fewer pencils than Dave. Grace has 6 fewer pencils than Ana. Tina has 6 more pencils than Ana. Heath has 95 more pencils than Eugene. Ivy has 29 more pencils than Finn. Paul has 26 fewer pencils than Olivia. Heidi has 11 more pencils than Olivia. Nick has 42 more pencils than Olivia.\nQuestion: How many pencils does Kristopher have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Olivia has 72 pencils, and Ana has 23 fewer pencils than Olivia. So, Ana has 72-23=49 pencils.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Ana has 49 pencils, and Alton has 63 more pencils than Ana. So, Alton has 49+63=112 pencils.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Alton has 112 pencils, and Finn has 21 more pencils than Alton. So, Finn has 112+21=133 pencils.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Finn has 133 pencils, and Kristopher has 76 fewer pencils than Finn. So, Kristopher has 133-76=57 pencils.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "The final answer is 57.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Context: Grace has 54 more bananas than Kevin. Kevin has 54 fewer bananas than Zoe. Ana's classmate has 8 more bananas than Sam. Nick has 22 more bananas than Trent. Alice has 80 fewer bananas than Trent. Paul has 81 more bananas than Ana's mother. Rob has 44 more bananas than Zoe. Victor has 92 fewer bananas than Sam. Larry has 29 more bananas than Trent. Walter has 18 fewer bananas than Sam. Mallory has 89 more bananas than Kevin. Dan has 95 more bananas than Zoe. Emma has 79 more bananas than Trent. Tina has 16 fewer bananas than Trent. Dylan has 5 fewer bananas than Kevin. Ana has 97 more bananas than Sam. Zack has 70 more bananas than Zoe. Hank has 85 more bananas than Kevin. Cindy has 15 more bananas than Kevin. Frank has 36 more bananas than Zoe. Cathy has 78 more bananas than Sam. Yvonne has 95 more bananas than Sam. Zoe has 39 more bananas than Trent. Ivy has 78 more bananas than Ana's son. Heidi has 30 fewer bananas than Kevin. Ana's father has 44 more bananas than Trent. Judy has 96 more bananas than Zoe. Ana's mother has 83 more bananas than Kevin. Jack has 81 fewer bananas than Zoe. Gina has 40 more bananas than Sam. Xavier has 6 fewer bananas than Ana's father. Carol has 66 fewer bananas than Sam. Dave has 24 fewer bananas than Trent. Ana's son has 91 more bananas than Zoe. Ivan has 92 fewer bananas than Ana's mother. Wendy has 37 more bananas than Trent. Vince has 79 fewer bananas than Sam. Eve has 95 more bananas than Zoe. Kim has 84 more bananas than Sam. Sybil has 14 fewer bananas than Kevin. Ursula has 33 fewer bananas than Kevin. Sam has 98 more bananas than Kevin. Olivia has 28 fewer bananas than Ana's son. Bill has 39 fewer bananas than Ana's father. Finn has 34 fewer bananas than Zoe. Trent has 10 bananas. Olive has 87 more bananas than Trent.\nQuestion: How many bananas does Ana have?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Trent has 10 bananas, and Zoe has 39 more bananas than Trent. So, Zoe has 10+39=49 bananas.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Zoe has 49 bananas, and Kevin has 54 fewer bananas than Zoe. So, Kevin has 49-54=-5 bananas.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Kevin has -5 bananas, and Sam has 98 more bananas than Kevin. So, Sam has -5+98=93 bananas.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "Sam has 93 bananas, and Ana has 97 more bananas than Sam. So, Ana has 93+97=190 bananas.",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "text": "The final answer is 190.",
+          "type": "text"
+        }
+      ]
+    },
   ]
     elif args.prompt_type == "overlap":
         prompt = [
